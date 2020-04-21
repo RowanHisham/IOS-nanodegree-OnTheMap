@@ -15,7 +15,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateStudentsInfromation(_:)), name: Notification.Name(rawValue: "updateStudentsInfromation"), object: nil)
+        subscribe()
+        
         setupMap()
     }
     
@@ -24,17 +25,21 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     @objc func updateStudentsInfromation(_ notification: Notification) {
-        print("NOTIFICATION WORKED")
+        setupMap()
+        DispatchQueue.main.async {
+            self.mapView.reloadInputViews()
+        }
     }
     
     // MARK: Extract the information for every student and show it on the map
     func setupMap(){
-        print("HEREEEE")
+        mapView.delegate = self
+        print("SettingUpMap")
         var annotations = [MKPointAnnotation]()
         
         for student in StudentsInformation.data {
-            let lat = CLLocationDegrees(student.latitude as! Double)
-            let long = CLLocationDegrees(student.longitude as! Double)
+            let lat = CLLocationDegrees(student.latitude)
+            let long = CLLocationDegrees(student.longitude)
             
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
             let first = student.firstName
@@ -57,7 +62,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        print("HERE2")
         let reuseId = "pin"
         
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
@@ -79,10 +83,34 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             
-            guard let urlString = view.annotation?.subtitle! else{return}
-            guard let url = URL(string: urlString) else{return}
+            guard let urlString = view.annotation?.subtitle!, let url = URL(string: urlString) else{
+                showError()
+                return
+            }
             
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url, options: [:]) { success in
+                guard success == true else{
+                    self.showError()
+                    return
+                }
+            }
         }
+    }
+    
+    func showError(){
+        let alertController = UIAlertController(title: "Can't Open URL", message: "URL not valid or student did not provide it", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alertController.addAction(okButton)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func subscribe(){
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStudentsInfromation(_:)), name: Notification.Name(rawValue: "updateStudentsInfromation"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(unsubscribe(_:)), name: Notification.Name(rawValue: "logout"), object: nil)
+    }
+    
+    @objc func unsubscribe(_ notification: Notification){
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue:"updateStudentsInfromation"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue:"logout"), object: nil)
     }
 }

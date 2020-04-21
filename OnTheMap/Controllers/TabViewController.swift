@@ -13,7 +13,7 @@ class TabViewController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureUI()
-        UdacityClient.getStudentsInformation(completion: handleStudentsInformation)
+        loadStudentInformation()
     }
     
     override func viewDidLoad() {
@@ -32,25 +32,10 @@ class TabViewController: UITabBarController {
         tabBarController?.tabBarItem.image = UIImage(named: "mapIcon.png")
     }
     
-    @objc func logout(){
-        self.navigationItem.rightBarButtonItem?.isEnabled = false
-        UdacityClient.logout(completion: handlelogout)
+    func loadStudentInformation(){
+        UdacityClient.getStudentsInformation(completion: handleStudentsInformation)
     }
-    
-    @objc func addMarker(){
-        print("Here2")
-        UdacityClient.getUserData(completion: handleUserData)
-    }
-    
-    func handlelogout(){
-        self.performSegue(withIdentifier: "logout", sender: self)
-    }
-    
-    func handleUserData(userData: UserData, error: Error?){
-        print(userData.firstName)
-        print(userData.lastName)
-    }
-    
+
     func handleStudentsInformation(error: Error?){
         guard error == nil else{
             showError(message: error?.localizedDescription ?? "Error")
@@ -60,9 +45,32 @@ class TabViewController: UITabBarController {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "updateStudentsInfromation"), object: nil)
     }
     
+    @objc func logout(){
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        UdacityClient.logout(completion: handlelogout)
+    }
+    
+    func handlelogout(){
+        StudentsInformation.data = []
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "logout"), object: nil)
+        self.performSegue(withIdentifier: "logout", sender: self)
+    }
+    
+    @objc func addMarker(){
+        UdacityClient.getUserData(completion: handleUserData)
+    }
+    
+    func handleUserData(userData: UserData, error: Error?){
+        print(userData.firstName)
+        print(userData.lastName)
+    }
+    
+    
     func showError(message: String){
         let alertController = UIAlertController(title: "Fetching Students Information Failed", message: message, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        let okButton = UIAlertAction(title: "Reload", style: .default) { alertAction in
+            self.loadStudentInformation()
+        }
         alertController.addAction(okButton)
         present(alertController, animated: true, completion: nil)
     }

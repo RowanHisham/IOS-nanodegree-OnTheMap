@@ -12,8 +12,7 @@ class TableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateStudentsInfromation(_:)), name: Notification.Name(rawValue: "updateStudentsInfromation"), object: nil)
-
+       subscribe()
     }
     
     override func viewDidLoad() {
@@ -21,7 +20,9 @@ class TableViewController: UITableViewController {
     }
   
     @objc func updateStudentsInfromation(_ notification: Notification) {
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: Set number of rows
@@ -44,9 +45,33 @@ class TableViewController: UITableViewController {
     
     //Open student's MediaURL when row is selected
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let url = URL(string: StudentsInformation.data[indexPath.row].mediaURL)else {return}
+        guard let url = URL(string: StudentsInformation.data[indexPath.row].mediaURL)else
+        {   showError()
+            return
+        }
         
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        
+        UIApplication.shared.open(url, options: [:]) { success in
+            guard success == true else{
+                self.showError()
+                return
+            }
+        }
+    }
+    
+    func showError(){
+        let alertController = UIAlertController(title: "Can't Open URL", message: "URL not valid or student did not provide it", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alertController.addAction(okButton)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func subscribe(){
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStudentsInfromation(_:)), name: Notification.Name(rawValue: "updateStudentsInfromation"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(unsubscribe(_:)), name: Notification.Name(rawValue: "logout"), object: nil)
+    }
+    
+    @objc func unsubscribe(_ notification: Notification){
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue:"updateStudentsInfromation"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue:"logout"), object: nil)
     }
 }

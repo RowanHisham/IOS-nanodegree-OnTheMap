@@ -129,7 +129,9 @@ class UdacityClient{
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
         
             guard let data = data else{
-                completion(error)
+                DispatchQueue.main.async {
+                    completion(error)
+                }
                 return
             }
             
@@ -137,7 +139,9 @@ class UdacityClient{
             do{
                 let studentsInfo = try decoder.decode(StudentsInfoResponse.self, from: data)
                 StudentsInformation.data = studentsInfo.results
-                completion(nil)
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
             }catch{
                 DispatchQueue.main.async {
                     completion(error)
