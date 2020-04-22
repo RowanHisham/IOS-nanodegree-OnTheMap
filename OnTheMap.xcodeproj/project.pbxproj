@@ -12,6 +12,9 @@
 		F34885FB244E457C004ECC25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F34885F9244E457C004ECC25 /* Main.storyboard */; };
 		F34885FD244E457E004ECC25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F34885FC244E457E004ECC25 /* Assets.xcassets */; };
 		F3488600244E457E004ECC25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F34885FE244E457E004ECC25 /* LaunchScreen.storyboard */; };
+		F35E10942450ACFB0081D7C6 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E10932450ACFB0081D7C6 /* StudentLocation.swift */; };
+		F35E10962450C7120081D7C6 /* LoginViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E10952450C7120081D7C6 /* LoginViewControllerExtension.swift */; };
+		F35E10982450C9AB0081D7C6 /* MapViewController-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E10972450C9AB0081D7C6 /* MapViewController-Extension.swift */; };
 		F36549C8244E53E000F8EEB9 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36549C7244E53E000F8EEB9 /* UITextFieldExtension.swift */; };
 		F36549CD244E650900F8EEB9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36549CC244E650900F8EEB9 /* MapViewController.swift */; };
 		F36549D0244E788800F8EEB9 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36549CF244E788800F8EEB9 /* TableViewController.swift */; };
@@ -23,6 +26,7 @@
 		F3C5C4AE244F78A60081BF58 /* GetStudentsInformationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5C4AD244F78A60081BF58 /* GetStudentsInformationResponse.swift */; };
 		F3C5C4B0244F7D3E0081BF58 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5C4AF244F7D3E0081BF58 /* TabViewController.swift */; };
 		F3C5C4B2244F9AF30081BF58 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5C4B1244F9AF30081BF58 /* UIColorExtension.swift */; };
+		F3C5C4B4244FD6A70081BF58 /* AddPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5C4B3244FD6A70081BF58 /* AddPinViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,9 @@
 		F34885FC244E457E004ECC25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F34885FF244E457E004ECC25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3488601244E457E004ECC25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F35E10932450ACFB0081D7C6 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		F35E10952450C7120081D7C6 /* LoginViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerExtension.swift; sourceTree = "<group>"; };
+		F35E10972450C9AB0081D7C6 /* MapViewController-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController-Extension.swift"; sourceTree = "<group>"; };
 		F36549C7244E53E000F8EEB9 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		F36549CC244E650900F8EEB9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F36549CF244E788800F8EEB9 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +51,7 @@
 		F3C5C4AD244F78A60081BF58 /* GetStudentsInformationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStudentsInformationResponse.swift; sourceTree = "<group>"; };
 		F3C5C4AF244F7D3E0081BF58 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		F3C5C4B1244F9AF30081BF58 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		F3C5C4B3244FD6A70081BF58 /* AddPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPinViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +109,12 @@
 			isa = PBXGroup;
 			children = (
 				F34885F7244E457C004ECC25 /* LoginViewController.swift */,
-				F36549CC244E650900F8EEB9 /* MapViewController.swift */,
-				F36549CF244E788800F8EEB9 /* TableViewController.swift */,
+				F35E10952450C7120081D7C6 /* LoginViewControllerExtension.swift */,
 				F3C5C4AF244F7D3E0081BF58 /* TabViewController.swift */,
+				F36549CC244E650900F8EEB9 /* MapViewController.swift */,
+				F35E10972450C9AB0081D7C6 /* MapViewController-Extension.swift */,
+				F36549CF244E788800F8EEB9 /* TableViewController.swift */,
+				F3C5C4B3244FD6A70081BF58 /* AddPinViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -123,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				F3C5C4A1244EA41B0081BF58 /* LoginRequest.swift */,
+				F35E10932450ACFB0081D7C6 /* StudentLocation.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -230,11 +242,15 @@
 				F36549D3244E839000F8EEB9 /* UdacityClient.swift in Sources */,
 				F3C5C4A9244F6A360081BF58 /* GetUserDataResponse.swift in Sources */,
 				F34885F6244E457C004ECC25 /* AppDelegate.swift in Sources */,
+				F3C5C4B4244FD6A70081BF58 /* AddPinViewController.swift in Sources */,
 				F3C5C4B2244F9AF30081BF58 /* UIColorExtension.swift in Sources */,
 				F36549D0244E788800F8EEB9 /* TableViewController.swift in Sources */,
 				F3C5C4AC244F78620081BF58 /* StudentsInformation.swift in Sources */,
+				F35E10962450C7120081D7C6 /* LoginViewControllerExtension.swift in Sources */,
 				F3C5C4AE244F78A60081BF58 /* GetStudentsInformationResponse.swift in Sources */,
+				F35E10942450ACFB0081D7C6 /* StudentLocation.swift in Sources */,
 				F3C5C4A2244EA41B0081BF58 /* LoginRequest.swift in Sources */,
+				F35E10982450C9AB0081D7C6 /* MapViewController-Extension.swift in Sources */,
 				F3C5C4A5244EA4510081BF58 /* LoginResponse.swift in Sources */,
 				F36549CD244E650900F8EEB9 /* MapViewController.swift in Sources */,
 			);

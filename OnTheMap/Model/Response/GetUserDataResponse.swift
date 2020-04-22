@@ -6,8 +6,6 @@
 //  Copyright © 2020 Rowan Hisham. All rights reserved.
 //
 
-import Foundation
-
 struct UserData: Codable{
     let lastName: String
     let socialAccounts: [String]

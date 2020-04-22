@@ -58,6 +58,7 @@ class TableViewController: UITableViewController {
         }
     }
     
+    // MARK: Display Error Message to the User
     func showError(){
         let alertController = UIAlertController(title: "Can't Open URL", message: "URL not valid or student did not provide it", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
