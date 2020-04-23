@@ -16,6 +16,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var urlView: UIView!
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var confirmUrlButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var newAnnotation = MKPointAnnotation()
     
@@ -37,6 +38,10 @@ class MapViewController: UIViewController {
     // MARK: Unwind Segue Triggered when user return from AddPinViewController
     @IBAction func unwindToTab(unwindSegue: UIStoryboardSegue) {
         if let addPinViewController = unwindSegue.source as? AddPinViewController {
+            guard addPinViewController.placeSelected != "" else{
+                return
+            }
+            
             // Update the Current Student Location Instance
             StudentLocation.instance = StudentLocation.init(uniqueKey: "", firstName: "", lastName: "", mapString: addPinViewController.placeSelected, mediaURL: "", latitude: 0, longitude: 0)
             
@@ -46,15 +51,19 @@ class MapViewController: UIViewController {
     
     // MARK: Check if location is valid and zoom in on it
     func showLocationOnMap(){
+        self.activityIndicator.startAnimating()
+        print("Animating")
         // MARK: Geocode the Location user entered
         let searchRequest = MKLocalSearch.Request()
         searchRequest.naturalLanguageQuery = StudentLocation.instance?.mapString
         let search = MKLocalSearch(request: searchRequest)
-        
+
         // If it doesn't exist display an error message
         search.start { response, error in
+            print("Stop Animating")
+            self.activityIndicator.stopAnimating()
             guard let response = response else {
-                self.showError(message: "Can't Find Location")
+                self.showError(title: "Error", message: "Can't Find Location")
                 return
             }
             
@@ -66,7 +75,7 @@ class MapViewController: UIViewController {
                 let coordinate = mi.placemark.location?.coordinate
                 let region = MKCoordinateRegion(center: coordinate!, span: span)
                 self.mapView.setRegion(region, animated: true)
-                
+
                 // Update the Student Location Instance with the coordinates
                 StudentLocation.instance?.longitude = Float(coordinate!.longitude)
                 StudentLocation.instance?.latitude = Float(coordinate!.latitude)
@@ -86,7 +95,7 @@ class MapViewController: UIViewController {
     // MARK: If the student information can't be found ignore posting the new Pin Location
     func handleUserData(userData: UserData?, error: Error?){
         guard error == nil else{
-            showError(message: "Can't retrieve account information")
+            showError(title: "Error", message: "Can't retrieve account information")
             return
         }
         
@@ -107,7 +116,7 @@ class MapViewController: UIViewController {
         UdacityClient.postStudentLocation(studentLocation: StudentLocation.instance!){ error in
             
             guard error == nil else{
-                self.showError(message: "Can't Post New Location")
+                self.showError(title:"Error", message: "Can't Post New Location")
                 return
             }
             
@@ -118,13 +127,5 @@ class MapViewController: UIViewController {
             self.newAnnotation.subtitle = StudentLocation.instance!.mediaURL
             self.mapView.addAnnotation(self.newAnnotation)
         }
-    }
-    
-    // MARK: Display Error Messages to the User
-    func showError(message: String){
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
-        alertController.addAction(okButton)
-        present(alertController, animated: true, completion: nil)
     }
 }

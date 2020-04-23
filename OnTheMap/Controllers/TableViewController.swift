@@ -46,24 +46,16 @@ class TableViewController: UITableViewController {
     //Open student's MediaURL when row is selected
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let url = URL(string: StudentsInformation.data[indexPath.row].mediaURL)else
-        {   showError()
+        {   self.showError(title: "Can't Open URL",message: "URL not valid or student did not provide it")
             return
         }
         
         UIApplication.shared.open(url, options: [:]) { success in
             guard success == true else{
-                self.showError()
+                self.showError(title: "Can't Open URL",message: "URL not valid or student did not provide it")
                 return
             }
         }
-    }
-    
-    // MARK: Display Error Message to the User
-    func showError(){
-        let alertController = UIAlertController(title: "Can't Open URL", message: "URL not valid or student did not provide it", preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
-        alertController.addAction(okButton)
-        present(alertController, animated: true, completion: nil)
     }
     
     func subscribe(){

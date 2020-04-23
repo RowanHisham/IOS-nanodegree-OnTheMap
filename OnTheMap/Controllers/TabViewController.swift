@@ -19,10 +19,6 @@ class TabViewController: UITabBarController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     func configureUI(){
         navigationController?.isNavigationBarHidden = false
         let logoutBarButtonItem = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(logout))
@@ -30,9 +26,9 @@ class TabViewController: UITabBarController {
         let addBarButtonItem = UIBarButtonItem(image: UIImage(named: "pin.png"), style:.plain, target: self, action:  #selector(addMarker))
         
         
-        self.navigationItem.rightBarButtonItem  = logoutBarButtonItem
-        self.navigationItem.leftBarButtonItem = addBarButtonItem
-        self.navigationItem.title = "On The Map"
+        navigationItem.leftBarButtonItem  = logoutBarButtonItem
+        navigationItem.rightBarButtonItem = addBarButtonItem
+        navigationItem.title = "On The Map"
     }
     
     // MARK: Load Random Student Information to Populate the Map and TableView
@@ -43,7 +39,7 @@ class TabViewController: UITabBarController {
     // MARK: Notify user if error occured
     func handleStudentsInformation(error: Error?){
         guard error == nil else{
-            showError(message: error?.localizedDescription ?? "Error")
+            showErrorAndReloadData(message: error?.localizedDescription ?? "Error")
             return
         }
         
@@ -62,7 +58,7 @@ class TabViewController: UITabBarController {
         StudentsInformation.data = []
         //Post a Notification that the app is logging out so observers can unsubscribe
         NotificationCenter.default.post(name: Notification.Name(rawValue: "logout"), object: nil)
-        self.performSegue(withIdentifier: "logout", sender: self)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK: Display AddPin ViewController
@@ -72,8 +68,8 @@ class TabViewController: UITabBarController {
         self.present(vc, animated: true, completion: nil)
     }
     
-    // MARK: Display Error Messages to the User
-    func showError(message: String){
+    // MARK: Display Error Messages to the User and Reloads Students Locations
+    func showErrorAndReloadData(message: String){
         let alertController = UIAlertController(title: "Fetching Students Information Failed", message: message, preferredStyle: .alert)
         let okButton = UIAlertAction(title: "Reload", style: .default) { alertAction in
             self.loadStudentInformation()

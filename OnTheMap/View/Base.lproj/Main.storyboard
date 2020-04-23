@@ -31,11 +31,11 @@
             <objects>
                 <viewController id="wc1-7U-jVJ" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M9F-v8-37o">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EQj-0f-BNa">
-                                <rect key="frame" x="42.5" y="364" width="290" height="60"/>
+                                <rect key="frame" x="42.5" y="344" width="290" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="YW6-Uj-VMq"/>
@@ -45,14 +45,14 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapIcon" translatesAutoresizingMaskIntoConstraints="NO" id="D84-Fh-1ag">
-                                <rect key="frame" x="-232.5" y="114" width="840" height="128"/>
+                                <rect key="frame" x="-232.5" y="94" width="840" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Haa-lh-c0e"/>
                                     <constraint firstAttribute="width" constant="840" id="sLj-Lj-1Z8"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gNp-Hp-JvR">
-                                <rect key="frame" x="42.5" y="296" width="290" height="60"/>
+                                <rect key="frame" x="42.5" y="276" width="290" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="wlr-yx-5KU"/>
@@ -62,13 +62,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udacity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvJ-xF-WJQ">
-                                <rect key="frame" x="116.5" y="264" width="142" height="24"/>
+                                <rect key="frame" x="116.5" y="244" width="142" height="24"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFL-DO-dKP">
-                                <rect key="frame" x="42.5" y="432" width="290" height="60"/>
+                                <rect key="frame" x="42.5" y="412" width="290" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ftN-EL-xII"/>
@@ -81,13 +81,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuf-dV-6bC">
-                                <rect key="frame" x="42.5" y="500" width="180.5" height="15"/>
+                                <rect key="frame" x="42.5" y="480" width="180.5" height="15"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="X7M-MF-ovi">
-                                <rect key="frame" x="177.5" y="549" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="529" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
@@ -133,14 +133,14 @@
             <objects>
                 <viewController id="pMM-vU-jzv" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dcQ-co-077">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="K3A-3h-zvN">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kpl-vW-8ZL">
-                                <rect key="frame" x="0.0" y="20" width="375" height="187"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="URL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dek-oU-HLv">
                                         <rect key="frame" x="25" y="36" width="325" height="75"/>
@@ -189,6 +189,9 @@
                                     <constraint firstAttribute="trailing" secondItem="KsO-BU-CTi" secondAttribute="trailing" constant="220" id="xuK-t1-NLY"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zGN-DJ-cbg">
+                                <rect key="frame" x="177.5" y="459" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -197,7 +200,9 @@
                             <constraint firstItem="K3A-3h-zvN" firstAttribute="bottom" secondItem="1r4-3x-3Qk" secondAttribute="bottom" id="Amr-yq-aE4"/>
                             <constraint firstItem="Kpl-vW-8ZL" firstAttribute="leading" secondItem="1r4-3x-3Qk" secondAttribute="leading" id="HQO-Gp-OuK"/>
                             <constraint firstItem="K3A-3h-zvN" firstAttribute="top" secondItem="1r4-3x-3Qk" secondAttribute="top" id="YJp-NU-LsJ"/>
+                            <constraint firstItem="zGN-DJ-cbg" firstAttribute="centerX" secondItem="dcQ-co-077" secondAttribute="centerX" id="b3e-RN-ulU"/>
                             <constraint firstItem="Kpl-vW-8ZL" firstAttribute="top" secondItem="1r4-3x-3Qk" secondAttribute="top" id="bve-2g-OQd"/>
+                            <constraint firstItem="zGN-DJ-cbg" firstAttribute="top" secondItem="K3A-3h-zvN" secondAttribute="bottom" constant="-95" id="kZJ-AI-l0J"/>
                             <constraint firstItem="K3A-3h-zvN" firstAttribute="leading" secondItem="1r4-3x-3Qk" secondAttribute="leading" id="ngM-Lh-CFO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1r4-3x-3Qk"/>
@@ -205,6 +210,7 @@
                     <tabBarItem key="tabBarItem" title="" image="mapTabIcon" id="Uo7-s0-NxA"/>
                     <navigationItem key="navigationItem" id="tDk-hT-WGu"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="zGN-DJ-cbg" id="EhT-re-UBc"/>
                         <outlet property="confirmUrlButton" destination="ZfW-60-93G" id="Nmi-dS-OdG"/>
                         <outlet property="mapView" destination="K3A-3h-zvN" id="KJy-oj-EvE"/>
                         <outlet property="urlTextField" destination="Dek-oU-HLv" id="7Do-25-adF"/>
@@ -305,7 +311,6 @@ Today?</string>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="wc1-7U-jVJ" kind="show" identifier="logout" id="mLr-zQ-MLm"/>
                         <segue destination="pMM-vU-jzv" kind="relationship" relationship="viewControllers" id="b3f-2F-f9r"/>
                         <segue destination="0ai-ok-xav" kind="relationship" relationship="viewControllers" id="Y7J-bl-G3S"/>
                     </connections>
@@ -319,7 +324,7 @@ Today?</string>
             <objects>
                 <tableViewController id="0ai-ok-xav" customClass="TableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hBF-ha-XaY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -363,7 +368,4 @@ Today?</string>
         <image name="mapTabIcon" width="25" height="25"/>
         <image name="table" width="60" height="60"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="mLr-zQ-MLm"/>
-    </inferredMetricsTieBreakers>
 </document>

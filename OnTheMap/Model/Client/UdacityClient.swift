@@ -23,7 +23,7 @@ class UdacityClient{
             switch self{
             case .createSessionId, .deleteSession: return Endpoints.base + "/session"
             case .getUserData: return Endpoints.base + "/users/\(Auth.accountId)"
-            case .getStudentsInforamtion: return Endpoints.base + "/StudentLocation?order=-updatedAt"
+            case .getStudentsInforamtion: return Endpoints.base + "/StudentLocation?order=-updatedAt?limit=-100"
             case .postStudentLocation: return Endpoints.base + "/StudentLocation"
             }
         }

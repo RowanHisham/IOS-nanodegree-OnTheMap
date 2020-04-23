@@ -119,13 +119,13 @@ extension MapViewController: MKMapViewDelegate, UITextFieldDelegate{
         if control == view.rightCalloutAccessoryView {
             
             guard let urlString = view.annotation?.subtitle!, let url = URL(string: urlString) else{
-                showError(message: "URL not valid or student did not provide it")
+                showError(title: "Error", message: "URL not valid or student did not provide it")
                 return
             }
             
             UIApplication.shared.open(url, options: [:]) { success in
                 guard success == true else{
-                    self.showError(message: "URL not valid or student did not provide it")
+                    self.showError(title: "Error", message: "URL not valid or student did not provide it")
                     return
                 }
             }

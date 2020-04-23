@@ -38,19 +38,10 @@ class LoginViewController: UIViewController {
         setLogginIn(false)
         guard error == nil, registered == true
             else {
-                showError(message: error?.localizedDescription ?? "Error")
+                showError(title: "Login Failed", message: error?.localizedDescription ?? "Error")
                 return
             }
-        
         self.performSegue(withIdentifier: "login", sender: self)
-    }
-    
-    // MARK: Display Error Messages to the User
-    func showError(message: String){
-        let alertController = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
-        alertController.addAction(okButton)
-        present(alertController, animated: true, completion: nil)
     }
 }
 
