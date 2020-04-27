@@ -17,36 +17,36 @@ and pin annotations for student names and URLs.
 ## App Structure
 On The Map is following the MVC pattern. 
 
-<img src="https://github.com/RowanHisham/README-Images/blob/master/onthemap1.png" alt="alt text" width="800" height="500" >
+<img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap1.png" alt="alt text" width="800" height="500" >
 
 ## Implementation
 ### Login Screen 
 Allows the user to log in using their Udacity credentials, when the user taps the Login button, the app will attempt to authenticate with Udacity’s servers.
 If the login does not succeed, the user will be presented with an alert view specifying whether it was a failed network connection, or an incorrect email and password.
 
-<img src="https://github.com/RowanHisham/README-Images/blob/master/onthemap2.png" alt="alt text" width="300" height="550" >
+<img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap2.png" alt="alt text" width="300" height="550" >
 
 ### Map Screen 
 Displays a map with pins specifying the last 100 locations posted by students.
 
-<img src="https://github.com/RowanHisham/README-Images/blob/master/onthemap3.png" alt="alt text" width="300" height="550" >
+<img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap3.png" alt="alt text" width="300" height="550" >
 
 
 ### List Screen
 Displays the most recent 100 locations posted by students in a table. 
 Each row displays the name from the student’s Udacity profile. Tapping on the row launches launch Safari and direct it to the link associated with the cell
 
-<img src="https://github.com/RowanHisham/README-Images/blob/master/onthemap4.png" alt="alt text" width="300" height="550" ><img src="https://github.com/RowanHisham/README-Images/blob/master/onthemap8.png" alt="alt text" width="300" height="550" >
+<img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap4.png" alt="alt text" width="300" height="550" ><img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap8.png" alt="alt text" width="300" height="550" >
 
 ### Add Pin Screen
 Allows the user to input data in two steps: first adding their location string, then their link.
-<img src="https://github.com/RowanHisham/README-Images/blob/master/onthemap5.png" alt="alt text" width="300" height="550" ><img src="https://github.com/RowanHisham/README-Images/blob/master/onthemap6.png" alt="alt text" width="300" height="550" >
+<img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap5.png" alt="alt text" width="300" height="550" ><img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap6.png" alt="alt text" width="300" height="550" >
 
 When the user taps a pin, it displays the pin annotation popup, with the student’s name 
 (Note: This is not the real Udacity API, but is a version specific to On the Map that uses randomized fake user data.) and the link associated with the student’s pin.
 tapping the button within the annotation will launch Safari and direct it to the link associated with the pin.
 
-<img src="https://github.com/RowanHisham/README-Images/blob/master/onthemap7.png" alt="alt text" width="300" height="550" ><img src="https://github.com/RowanHisham/README-Images/blob/master/onthemap8.png" alt="alt text" width="300" height="550" >
+<img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap7.png" alt="alt text" width="300" height="550" ><img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap8.png" alt="alt text" width="300" height="550" >
 
 
 
