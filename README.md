@@ -24,29 +24,40 @@ On The Map is following the MVC pattern.
 Allows the user to log in using their Udacity credentials, when the user taps the Login button, the app will attempt to authenticate with Udacity’s servers.
 If the login does not succeed, the user will be presented with an alert view specifying whether it was a failed network connection, or an incorrect email and password.
 
+<p align="center">
 <img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap2.png" alt="alt text" width="300" height="550" >
+</p>
 
 ### Map Screen 
 Displays a map with pins specifying the last 100 locations posted by students.
 
+<p align="center">
 <img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap3.png" alt="alt text" width="300" height="550" >
+</p>
 
 
 ### List Screen
 Displays the most recent 100 locations posted by students in a table. 
 Each row displays the name from the student’s Udacity profile. Tapping on the row launches launch Safari and direct it to the link associated with the cell
 
+<p align="center">
 <img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap4.png" alt="alt text" width="300" height="550" ><img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap8.png" alt="alt text" width="300" height="550" >
+</p>
 
 ### Add Pin Screen
 Allows the user to input data in two steps: first adding their location string, then their link.
+
+<p align="center">
 <img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap5.png" alt="alt text" width="300" height="550" ><img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap6.png" alt="alt text" width="300" height="550" >
+</p>
 
 When the user taps a pin, it displays the pin annotation popup, with the student’s name 
 (Note: This is not the real Udacity API, but is a version specific to On the Map that uses randomized fake user data.) and the link associated with the student’s pin.
 tapping the button within the annotation will launch Safari and direct it to the link associated with the pin.
 
+<p align="center">
 <img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap7.png" alt="alt text" width="300" height="550" ><img src="https://github.com/RowanHisham/IOS-nanodegree-OnTheMap/blob/master/Images/onthemap8.png" alt="alt text" width="300" height="550" >
+</p>
 
 
 
